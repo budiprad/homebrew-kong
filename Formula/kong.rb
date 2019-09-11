@@ -5,38 +5,23 @@ class Kong < Formula
   stable do
     url "https://bintray.com/kong/kong-community-edition-src/download_file?file_path=dists%2Fkong-community-edition-0.14.1.tar.gz"
     sha256 "945a90568838ffb7ee89e6816576a26aae0e860b5ff0a4c396f4299062eb0001"
-    depends_on "kong/kong/openresty@1.13.6.2"
   end
 
-  devel do
-    url "https://github.com/Kong/kong.git", :tag => "1.3.0rc2"
-    depends_on "kong/kong/openresty@1.15.8.1"
-  end
-
-  head do
-    url "https://github.com/Kong/kong.git", :branch => "next"
-    depends_on "kong/kong/openresty@1.15.8.1"
-  end
-
-  depends_on "libyaml"
+  depends_on "openssl"
+  depends_on "kong/kong/openresty@1.13.6.2"
 
   patch :DATA
 
   def install
     openresty_prefix = Formula["kong/kong/openresty@1.13.6.2"].prefix
 
-    if build.head? or build.devel? then
-      openresty_prefix = Formula["kong/kong/openresty@1.15.8.1"].prefix
-    end
-
     luarocks_prefix = openresty_prefix + "luarocks"
-    openssl_prefix = openresty_prefix + "openssl"
 
     system "#{luarocks_prefix}/bin/luarocks",
            "--tree=#{prefix}",
            "make",
-           "CRYPTO_DIR=#{openssl_prefix}",
-           "OPENSSL_DIR=#{openssl_prefix}"
+           "CRYPTO_DIR=#{Formula['openssl'].opt_prefix}",
+           "OPENSSL_DIR=#{Formula['openssl'].opt_prefix}"
 
     bin.install "bin/kong"
   end
