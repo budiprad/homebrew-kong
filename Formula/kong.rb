@@ -4,7 +4,7 @@ class Kong < Formula
 
   stable do
     url "https://bintray.com/kong/kong-community-edition-src/download_file?file_path=dists%2Fkong-community-edition-0.14.1.tar.gz"
-    sha256 "0d744662ad8b28274b87d6c81fe4ec69a7062344c76219a7a15e306dc1a5f0c7"
+    sha256 "945a90568838ffb7ee89e6816576a26aae0e860b5ff0a4c396f4299062eb0001"
     depends_on "kong/kong/openresty@1.13.6.2"
   end
 
