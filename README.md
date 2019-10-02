@@ -18,6 +18,8 @@ Then, put this line on your bashrc or zshrc :
 export PATH=$PATH:$(luarocks path)
 ```
 
+or run `eval "$(luarocks path)"`
+
 ### Use Kong
 
 ```shell
