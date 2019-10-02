@@ -1,4 +1,4 @@
-## Homebrew Kong Tap
+## Homebrew Kong 0.14 Modified Version
 
 Homebrew tap for [Kong] :beer:
 
@@ -7,37 +7,21 @@ Homebrew tap for [Kong] :beer:
 
 ### Install (stable)
 
+Make sure when you `brew list` you dont have any openresty or luarocks or kong.
+
 ```shell
-$ brew tap kong/kong
-$ brew install kong
+$ brew install https://raw.githubusercontent.com/budiprad/homebrew-kong/master/Formula/kong.rb
 ```
 
-##### Options
-
-### Install devel (release candidates)
-
-When a release candidate is available, it can be installed via this Formula's
-devel channel:
-
+Then, put this line on your bashrc or zshrc :
 ```
-$ brew tap kong/kong
-$ brew install --devel kong
-```
-
-### Install HEAD (unstable)
-
-HEAD points to Kong's `next` branch, the development branch for cutting edge
-installs:
-
-```
-$ brew tap kong/kong
-$ brew install --HEAD kong
+export PATH=$PATH:$(luarocks path)
 ```
 
 ### Use Kong
 
 ```shell
-$ kong
+$ kong -v
 ```
 
 Get started by reading the documentation at: https://docs.konghq.com
