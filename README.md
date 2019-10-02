@@ -1,11 +1,11 @@
-## Homebrew Kong 0.14 Modified Version
+## Homebrew Kong 0.14.1 Modified Version
 
-Homebrew tap for [Kong] :beer:
+Homebrew tap for [Kong] :beer: 🐵
 
 > Kong is a scalable and customizable API Management Layer built on top of
 > Nginx.
 
-### Install Kong 0.14
+### Install Kong 0.14.1
 
 Make sure when you `brew list` you dont have any openresty or luarocks or kong.
 
@@ -13,17 +13,18 @@ Make sure when you `brew list` you dont have any openresty or luarocks or kong.
 $ brew install https://raw.githubusercontent.com/budiprad/homebrew-kong/master/Formula/kong.rb
 ```
 
-Then, put this line on your bashrc or zshrc :
+Dont forget to make it available globally using :
 ```
-export PATH=$PATH:$(luarocks path)
+luarocks path >> ~/.bashrc
 ```
+you can change `.bashrc` to `.zshrc` or any other of your preferences
 
-or run `eval "$(luarocks path)"`
 
-### Use Kong
+### Verify Kong
 
 ```shell
-$ kong -v
+$ kong version
+0.14.1
 ```
 
 Get started by reading the documentation at: https://docs.konghq.com
