@@ -5,7 +5,7 @@ Homebrew tap for [Kong] :beer:
 > Kong is a scalable and customizable API Management Layer built on top of
 > Nginx.
 
-### Install (stable)
+### Install Kong 0.14
 
 Make sure when you `brew list` you dont have any openresty or luarocks or kong.
 
